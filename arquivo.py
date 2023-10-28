@@ -7,7 +7,7 @@ def nome():
             print('\n')
             nome = input('Digite o nome:\n')
             if nome.isnumeric():
-                raise Exception("Use somente letras")
+                raise Exception("USE SOMENTE LETRAS")
         except Exception as e:
             print(e)
         else:
@@ -20,10 +20,9 @@ def nascimento():
             print('\n')
             nascimento = input('Digite sua data de nascimento (ddMMyyyy):\n')
             if not nascimento.isdigit():
-                raise Exception("Use somente números")
-
+                raise Exception("USE SOMENTE NÚMEROS")
             elif len(nascimento) != 8:
-                raise Exception("Você inseriu mais ou menos números")
+                raise Exception("VOCÊ INSERIU MAIS OU MENOS NÚMEROS")
         except Exception as e:
             print(e)
         else:
@@ -36,9 +35,9 @@ def sexo():
             print('\n')
             sexo = input('Digite seu sexo (F ou M):\n').upper()
             if sexo.isnumeric():
-                raise Exception("Use somente letras")
+                raise Exception("USE SOMENTE LETRAS")
             if sexo != "F" and sexo != "M":
-                raise Exception("Utilize F ou M")
+                raise Exception("UTILIZE F OU M")
         except Exception as e:
             print(e)
         else:
@@ -51,9 +50,9 @@ def cpf():
             print('\n')
             cpf = input('Digite seu cpf (00011122233):\n')
             if not cpf.isdigit():
-                raise Exception("Use somente números")
+                raise Exception("USE SOMENTE NÚMEROS")
             elif len(cpf) != 11:
-                raise Exception("Você inseriu mais ou menos números")
+                raise Exception("VOCÊ INSERIU MAIS OU MENOS NÚMEROS")
         except Exception as e:
             print(e)
         else:
@@ -66,13 +65,12 @@ def rg():
             print('\n')
             rg = input('Digite seu rg (0123456):\n')
             if not rg.isdigit():
-                raise Exception("Use somente números")
+                raise Exception("USE SOMENTE NÚMEROS")
             elif len(rg) != 7:
-                raise Exception("Você inseriu mais ou menos números")
+                raise Exception("VOCÊ INSERIU MAIS OU MENOS NÚMEROS")
         except Exception as e:
             print(e)
         else:
-
             return rg
 
 
@@ -82,16 +80,15 @@ def telefone():
             print('\n')
             telefone = input('Digite seu telefone (91940028922):\n')
             if not telefone.isdigit():
-                raise Exception("Use somente números")
+                raise Exception("USE SOMENTE NÚMEROS")
             elif len(telefone) != 11:
-                raise Exception("Você inseriu mais ou menos números")
-
-            elif telefone[:1] != 9:
-                raise Exception("Coloque o DDD do Estado do Pará")
-
-            elif telefone[2] != 9:
+                raise Exception("VOCÊ INSERIU MAIS OU MENOS NÚMEROS")
+            elif telefone[:2] != '91':
                 raise Exception(
-                    "Não esqueça do 9 obrigatório em território brasileiro (Ex: 009000-0000)")
+                    "COLOQUE O DDD DO ESTADO DO PARÁ (INICIE COM 91)")
+            elif telefone[2] != '9':
+                raise Exception(
+                    "NÃO ESQUEÇA DO 9 OBRIGATÓRIO EM TERRITÓRIO BRASILEIRO (EX: 009000-0000)")
         except Exception as e:
             print(e)
         else:
@@ -116,7 +113,6 @@ def cadastrar():
 
 
 def listar_cadastros():
-
     for item in cadastros:
         print("----------------------------")
         print('Nome:', item['nome'])
@@ -132,28 +128,24 @@ def listar_cadastros():
 def menu():
     print("--------------------")
     print('Escolha um opção')
-    print('1- listar cadastros')
-    print('2- cadastrar')
-    print('3- sair')
+    print('1- Listar cadastros')
+    print('2- Cadastrar')
+    print('3- Sair')
     print("--------------------")
     return input()
 
 
 def programa():
-
     opcao = menu()
 
     while opcao != '3':
-
         if opcao == '1':
             listar_cadastros()
-
         elif opcao == '2':
             cadastrar()
         else:
             print('Opção inválida!')
-
-        opcao = menu()  # CHAMAR DENOVO
+        opcao = menu()
 
 
 programa()
