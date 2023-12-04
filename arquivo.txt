@@ -1,5 +1,0 @@
-Olá, estou dentro da pasta.
-Sou um texto da segunda linha,
-agora terceira,
-e por fim sou a última linha
-____________________________
